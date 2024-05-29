@@ -1,13 +1,13 @@
 module.exports = {
   development: {
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
+    username: 'ipinsokansunday',
+    password: '1981',
+    database: 'remindme',
+    host: 'localhost', // Replace this with the actual hostname or IP address of your PostgreSQL server
+    port: 5432, // Default PostgreSQL port
     dialect: 'postgres'
   },
   production: {
     use_env_variable: 'DATABASE_URL'
   }
 };
-
