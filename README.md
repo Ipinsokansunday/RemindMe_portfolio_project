@@ -31,3 +31,38 @@ Open your web browser and navigate to http://localhost:3000.
 API Endpoints Reminders GET /api/reminders: Retrieve all reminders POST /api/reminders: Create a new reminder PUT /api/reminders/ : Update an existing reminder DELETE /api/reminders/ : Delete a reminder Contributing Contributions are welcome! Please follow these steps:
 
 Fork the repository. Create a new branch (git checkout -b feature-branch). Make your changes. Commit your changes (git commit -m 'Add some feature'). Push to the branch (git push origin feature-branch). Open a pull request. License This project is licensed under the MIT License. See the LICENSE file for details.
+
+
+Project Directory Structure
+Here is a high-level view of your project directory structure:
+
+java
+Copy code
+RemindMe_portfolio_project/
+├── remindme/
+│   ├── backend/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── migrations/
+│   │   ├── models/
+│   │   ├── node_modules/
+│   │   ├── routes/
+│   │   ├── seeders/
+│   │   ├── src/
+│   │   ├── .env
+│   │   ├── Dockerfile
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   └── index.js
+│   ├── frontend/
+│   │   ├── public/
+│   │   │   ├── index.html
+│   │   │   ├── styles.css
+│   │   │   └── app.js
+│   │   ├── node_modules/
+│   │   ├── .gitignore
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   └── Dockerfile
+│   ├── docker-compose.yml

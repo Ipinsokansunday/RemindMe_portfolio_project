@@ -1,0 +1,28 @@
+version: '3'
+services:
+  backend:
+    build: ./remindme/backend
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgres://ipinsokansunday:1981@db:5432/remindme
+      - JWT_SECRET=63714106c29011fc59332a3a2e3625aa818b1d868214c441d76bd8007f5e2093
+      - GOOGLE_CLIENT_ID=78300098421-79fatfgcsk8us6ple0hidqq4qci1mbg3.apps.googleusercontent.com
+      - GOOGLE_CLIENT_SECRET=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
+      - GOOGLE_REDIRECT_URL=http://localhost:3000/auth/google/callback
+    depends_on:
+      - db
+
+  frontend:
+    build: ./remindme/frontend
+    ports:
+      - "8080:8080"
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=ipinsokansunday
+      - POSTGRES_PASSWORD=1981
+      - POSTGRES_DB=remindme
+    ports:
+      - "5432:5432"
