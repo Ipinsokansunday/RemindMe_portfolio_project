@@ -1,22 +1,40 @@
+const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
-  const Reminder = sequelize.define('Reminder', {
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
+  class Reminder extends Model {}
+
+  Reminder.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      description: {
+        type: DataTypes.STRING,
+      },
+      date: {
+        type: DataTypes.DATE,
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      },
     },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-  });
+    {
+      sequelize,
+      modelName: 'Reminder',
+    }
+  );
 
   return Reminder;
 };

@@ -1,13 +1,22 @@
+require('dotenv').config();
+
+const { DATABASE_URL } = process.env;
+
+const defaultConfig = {
+  dialect: 'postgres',
+};
+
 module.exports = {
   development: {
-    username: 'ipinsokansunday',
-    password: '1981',
-    database: 'remindme',
-    host: 'localhost', // Replace this with the actual hostname or IP address of your PostgreSQL server
-    port: 5432, // Default PostgreSQL port
-    dialect: 'postgres'
+    ...defaultConfig,
+    url: DATABASE_URL,
+  },
+  test: {
+    ...defaultConfig,
+    url: DATABASE_URL,
   },
   production: {
-    use_env_variable: 'DATABASE_URL'
-  }
+    ...defaultConfig,
+    url: DATABASE_URL,
+  },
 };
